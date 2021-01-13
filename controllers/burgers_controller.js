@@ -8,18 +8,18 @@ router.get("/", function(req, res) {
         const burgerObj = {
             burgers: data
         };
-        console.log(burgerObj);
+        console.log("Table log:", burgerObj);
         res.render("index", burgerObj);
     });
 });
 
 router.post("/api/burger", function(req, res) {
     burger.insertOne([
-        "burger name", "devoured"
+        "burger_name", "devoured"
     ],[
         req.body.burger_name, req.body.devoured
-    ], function(res) {
-        res.json({id: res.insertId});
+    ], function(data) {
+        res.json({id: data.id});
     });
 });
 
@@ -30,8 +30,8 @@ router.put("/api/burger/:id", function(req, res) {
 
     burger.updateOne({
         devoured: req.body.devoured
-    }, condition, function(res) {
-        if (res.changedRows === 0) {
+    }, condition, function(data) {
+        if (data.changedRows === 0) {
             return res.status(404).end();
         } else {
             res.status(200).end();
