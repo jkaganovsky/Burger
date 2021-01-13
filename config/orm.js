@@ -1,15 +1,5 @@
 const connection = require("./connection");
 
-function printQuestionMarks(num) {
-    const arr = [];
-
-    for (let i = 0; i < num; i++) {
-      arr.push("?");
-    }
-
-    return arr.toString();
-}
-
 function objToSql(ob) {
     const arr = [];
 
@@ -37,13 +27,13 @@ const orm = {
             });
     },
     insertOne: function(table, cols, vals, cb) {
-        const queryString = "INSERT INTO " + table;
+        let queryString = "INSERT INTO " + table;
 
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
+        queryString += "?,?";
         queryString += ") ";
 
         console.log(queryString);
