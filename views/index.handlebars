@@ -1,33 +1,37 @@
-<h2>EAT THAT BURGER!</h2>
-
 <form class="create-form">
 
-  <div class="form-group">
-    <input type="text" id="burg" name="burger_name">
+  <div class="form-group text-center col-form-label-lg">
+    <input type="text" placeholder="Burger Name" id="burger_name" name="burger_name">
 
     <button type="submit" id="addBurger">ADD BURGER!</button>
   </div>
 
 </form>
 
-<h2>To EAT...or NOT to EAT?</h2>
+<div class="container">
+  <div class="container-list row justify-content-evenly">
+    <div class="list col-6">
+      <h2 class="text-center">To EAT...or NOT to EAT?</h2>
 
-<ol>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burger-list devoured=false}}
-    {{/unless}}
-  {{/each}}
-</ol>
+      <ol>
+        {{#each burgers}}
+          {{#unless devoured}}
+            {{> burgers/burger-block devoured=true}}
+          {{/unless}}
+        {{/each}}
+      </ol>
+    </div>
 
+    <div class="list col-6">
+      <h2 class="text-center">DEVOURED</h2>
 
-<h2>DEVOUR ME!</h2>
-
-<ol>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burger-compost devoured=true}}
-    {{/if}}
-  {{/each}}
-</ol>
-
+      <ol>
+        {{#each burgers}}
+          {{#if devoured}}
+            {{> burgers/burger-block devoured=false}}
+          {{/if}}
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</div>
