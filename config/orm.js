@@ -1,7 +1,7 @@
 const connection = require("./connection");
 
 function printQuestionMarks(num) {
-    const arr = [];
+    let arr = [];
 
     for (let i = 0; i < num; i++) {
         arr.push("?");
@@ -15,7 +15,7 @@ function objToSql(ob) {
     let arr = [];
 
     for (let key in ob) {
-      const value = ob[key];
+      let value = ob[key];
       if (Object.hasOwnProperty.call(ob, key)) {
         if (typeof value === "string" && value.indexOf(" ") >= 0) {
           value = "'" + value + "'";
@@ -27,9 +27,10 @@ function objToSql(ob) {
     return arr.toString();
 }
 
-const orm = {
+let orm = {
     selectAll: (tableInput, cb) => {
-        const queryString = `SELECT * FROM ${tableInput};`
+        let queryString = `SELECT * FROM ${tableInput};`
+
         connection.query(queryString, (err, data) => {
                 if (err) {
                     throw err;
@@ -39,7 +40,7 @@ const orm = {
     },
 
     insertOne: (table, cols, vals, cb) => {
-        const queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals)})`
+        let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`
 
         console.log(queryString);
 
@@ -53,7 +54,7 @@ const orm = {
     },
 
     updateOne: (table, objColVals, condition, cb) => {
-        const queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`
+        let queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`
 
         console.log(queryString);
 
