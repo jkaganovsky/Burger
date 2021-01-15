@@ -5,5 +5,5 @@ VALUES
 ("Whopper Jr", TRUE),
 ("Five Alarm", TRUE),
 ("Big Mac", FALSE),
-("Charburger", FALSE)
-("Hawaiian Burger", TRUE);
+("Charburger", FALSE),
+("Hawaiian", TRUE);
