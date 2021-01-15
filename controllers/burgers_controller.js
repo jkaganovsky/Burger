@@ -7,7 +7,7 @@ const burger = require("../models/burger");
 router.get("/", (req, res) => {
     burger.selectAll(data => {
         let burgerObj = {
-            burger_name: data
+            burgers: data
         };
         console.log("Table log:", burgerObj);
         res.render("index", burgerObj);
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/api/burgers", (req, res) => {
-    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], data => {
+    burger.insertOne(["burger_name", "devoured"], [req.params.burgers, req.params.devoured], data => {
         res.json({id: data.insertId});
     });
 });
