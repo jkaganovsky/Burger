@@ -20,7 +20,7 @@ $(function() {
         });
     });
 
-    $("#addBurger").on("submit", function(e) {
+    $(".create-form").on("submit", function(e) {
 
         e.preventDefault();
 
@@ -35,8 +35,7 @@ $(function() {
         .then(function() {
             console.log("New burger added!", newBurger);
             location.reload();
-            }
-        );
+        });
     });
 
 });
