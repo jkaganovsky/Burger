@@ -28,10 +28,10 @@ function objToSql(ob) {
 }
 
 let orm = {
-    selectAll: (tableInput, cb) => {
+    selectAll: function(tableInput, cb) {
         let queryString = `SELECT * FROM ${tableInput};`
 
-        connection.query(queryString, (err, data) => {
+        connection.query(queryString, function(err, data) {
                 if (err) {
                     throw err;
                 }
@@ -39,12 +39,12 @@ let orm = {
             });
     },
 
-    insertOne: (table, cols, vals, cb) => {
+    insertOne: function(table, cols, vals, cb) {
         let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`
 
         console.log(queryString);
 
-        connection.query(queryString, vals, (err, data) => {
+        connection.query(queryString, vals, function(err, data) {
             if (err) {
                 throw err;
             }
@@ -53,12 +53,12 @@ let orm = {
         });
     },
 
-    updateOne: (table, objColVals, condition, cb) => {
+    updateOne: function(table, objColVals, condition, cb) {
         let queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`
 
         console.log(queryString);
 
-        connection.query(queryString, (err, data) => {
+        connection.query(queryString, function(err, data) {
             if (err) {
                 throw err;
             }

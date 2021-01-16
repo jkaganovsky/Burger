@@ -4,24 +4,24 @@ const router = express.Router();
 
 const burger = require("../models/burger");
 
-router.get("/", (req, res) => {
-    burger.selectAll(data => {
+router.get("/", function(req, res) {
+    burger.selectAll(function(data) {
         let burgerObj = {
             burgers: data
         };
-        console.log("Table log:", burgerObj);
         res.render("index", burgerObj);
+        console.log("Table log:", burgerObj);
     })
 });
 
-router.post("/api/burgers", (req, res) => {
-    burger.insertOne(["burger_name", "devoured"], [req.params.burgers, req.params.devoured], data => {
-        res.json({id: data.insertId});
+router.post("/api/burgers", function(req, res) {
+    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(data) {
+        res.json({id: result.insertId});
     });
 });
 
-router.put("/api/burgers/:id", (req, res) => {
-console.log("Request, Response:", req, res);
+router.put("/api/burgers/:id", function(req, res) {
+// console.log("Request, Response:", req, res);
     let condition = `id = ${req.params.id}`
 
     console.log("Condition: ", condition);
