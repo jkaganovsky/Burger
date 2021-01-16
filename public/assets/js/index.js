@@ -1,12 +1,12 @@
 $(function() {
-    $("#addBurger").on("click", function(e) {
-        let id = e.target.dataset.id;
-        // let id = $(this).data("id");
+    $(".devoured-state").on("click", function(e) {
+        // let id = e.target.dataset.id;
+        let id = $(this).data("id");
         // console.log("id:", id);
         // console.log("id: ", e.target.dataset.id);
 
-        // let newBurger = $(this).data("newburger");
-        let newBurger = e.target.dataset.newburger;
+        let newBurger = $(this).data("newburger");
+        // let newBurger = e.target.dataset.newburger;
         console.log("New Burger: ", newBurger);
 
         let burgerEaten = {
@@ -23,7 +23,7 @@ $(function() {
         });
     });
 
-    $(".create-form").on("submit", function(e) {
+    $("#addBurger").on("submit", function(e) {
 
         e.preventDefault();
 
