@@ -18,6 +18,7 @@ let burger = {
             cb(data);
         })
     }
+    
 };
 
 module.exports = burger;
