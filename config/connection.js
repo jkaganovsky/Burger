@@ -1,4 +1,6 @@
 const mysql = require("mysql");
+const util = require("util");
+
 let connection;
 
 if (process.env.JAWSDB_URL) {
@@ -21,5 +23,7 @@ connection.connect(function(err) {
     }
     console.log("connected as id " + connection.threadId);
 })
+
+connection.query = util.promisify(connection.query);
 
 module.exports = connection;
