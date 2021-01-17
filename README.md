@@ -3,15 +3,18 @@
 # Burger
 
 ## Description
+Burger logger application using MYSQL, Node, Express, Handlebars and homemade ORM. Whenever a user submits a burger's name, the app will display the burger on the left side of the page, waiting to be devoured. Each burger entry will be saved in a database, whether devoured or not.
 
 ## Links
 * [Github Repository](https://github.com/jkaganovsky/Burger)
-* [Heroku](https://burger.herokuapp.com/)
+* [Heroku](https://eat-or-not-burger.herokuapp.com/)
 
 
 ## Installation & Usage
 FEATURES
-1.
+1. Adds a new burger to your "TO EAT...OR NOT TO EAT" column using the text field when enter or the "ADD BURGER!" button is clicked.
+1. Moves a burger from the list to the "DEVOURED" column when the "DEVOUR ME!" button is clicked.
+1. Moves a burger back to the "TO EAT...OR NOT TO EAT" column when the "NAH! I CHANGED MY MIND" button is clicked.
 
 
 GITHUB
@@ -24,16 +27,19 @@ GITHUB
 
 
 HEROKU
-* Open the [Heroku](https://burger.herokuapp.com/) link and start using the application
+* Open the [Heroku](https://eat-or-not-burger.herokuapp.com/) link and start using the application
 
 ## Content
 DEMO
 
-![HTML gif](./public/assets/images/burger.gif)
+![HTML gif](./public/assets/img/eat-da-burger.gif)
 
 
 ## Credits
-1.
+1. My fellow developers at UW Coding Bootcamp
+1. My husband, Sergei Kaganovsky, a Software Development Engineer at Amazon AWS - https://www.linkedin.com/in/sergeik/
+1. My Trilogy Education Tutor, Jacob Carver - https://www.linkedin.com/in/jacob-carver-software-developer125b81191/
+
 
 ## License
 MIT License
